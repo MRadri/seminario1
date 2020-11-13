@@ -9,8 +9,6 @@ def first(n,it):
     for i in range(n):
         yield next(it)
 
-
-
 def filter(cond,it):
     while True:
         aux=next(it)
@@ -26,7 +24,7 @@ def take_while(cond,it):
 
 n=20
 a=squares()
-print("cuadrados")
+print("SQUARE")
 prueba = first(100, squares())
 for i in prueba:
     print(i)
@@ -37,8 +35,6 @@ prueba=take_while(lambda n: n<100, a)
 
 for i in prueba:
     print(i)
-
-#d=first(n,a)
 
 print("FILTER")
 
