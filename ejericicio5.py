@@ -1,10 +1,15 @@
-
-
 def squares():
     i=1
     while True:
         yield i*i
         i=i+1
+
+
+def first(n,it):
+    for i in range(n):
+        yield next(it)
+
+
 
 def filter(cond,it):
     while True:
@@ -13,22 +18,30 @@ def filter(cond,it):
             yield aux
 
 
-def first(n,it):
-    for i in range(n):
-        yield next(it)
-
 def take_while(cond,it):
     aux=next(it)
     while cond(aux):
             yield(aux)
             aux=next(it)
 
-n=5000
+n=20
 a=squares()
-h=take_while(lambda n: n<100, a)
+print("cuadrados")
+prueba = first(100, squares())
+for i in prueba:
+    print(i)
 
-d=first(n,a)
+print("TAKE WHILE")
 
-f=filter(lambda h:  str(n) == str(n)[::-1],a)
+prueba=take_while(lambda n: n<100, a)
+
+for i in prueba:
+    print(i)
+
+#d=first(n,a)
+
+print("FILTER")
+
+f=filter(lambda n:  str(n) == str(n)[::-1],a)
 for i in range(n):
     print(next(f))
